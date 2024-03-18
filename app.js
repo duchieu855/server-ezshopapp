@@ -4,7 +4,6 @@ import cors from "cors";
 import jwt from "jsonwebtoken";
 import { LowSync } from "lowdb";
 import { JSONFileSync } from "lowdb/node";
-import axios from "axios";
 
 const db = new LowSync(new JSONFileSync("database.json"), {
 	users: [],
