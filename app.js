@@ -134,37 +134,6 @@ app.post("/check-account", (req, res) => {
 	}
 });
 
-app.post("/authGoogle", async (req, res) => {
-	const { code } = req.body;
-	console.log("code", code);
-	const client_id =
-		"139470086134-ch811s3mb473es9kgjuvqu3i9jjmq789.apps.googleusercontent.com";
-	const client_secret = "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";
-	const redirect_uri = "http://localhost:3080";
-	const grant_type = "authorization_code";
 
-	try {
-		const res = await axios.post(
-			"https://oauth2.googleapis.com/token",
-			new URLSearchParams({
-				code,
-				client_id,
-				client_secret,
-				redirect_uri,
-				grant_type,
-			}),
-			{
-				headers: {
-					"Content-Type": "application/x-www-form-urlencoded",
-				},
-			}
-		);
-		// console.log("res gg", res);
-		// const token = res;
-		// res.status(200).json({ message: "success", token });
-	} catch (error) {
-		console.log(error);
-	}
-});
 
 app.listen(3080);
